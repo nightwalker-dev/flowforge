@@ -1,3 +1,5 @@
+@import "@xyflow/react/dist/style.css";
+
 :root {
   /* Base Palette */
   --color-muted-sage-grey: #A5A79B;
