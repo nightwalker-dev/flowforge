@@ -1,18 +1,19 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AppLayout } from './layouts/AppLayout';
+import { Workspace } from './pages/Workspace';
+import { WorkflowCanvas } from './pages/WorkflowCanvas';
 import './index.css';
 
 function App() {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <header style={{ padding: '1rem', backgroundColor: 'var(--color-deep-eggplant-violet)', color: 'var(--color-pastel-orchid-pink)' }}>
-        <h1>FlowForge</h1>
-      </header>
-      <main style={{ flex: 1, padding: '2rem' }}>
-        <p>Visual workflow canvas</p>
-      </main>
-      <footer style={{ padding: '1rem', backgroundColor: 'var(--color-deep-burgundy)' }}>
-        <p>Footer</p>
-      </footer>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<AppLayout />}>
+          <Route index element={<Workspace />} />
+          <Route path="workspace/:id/canvas" element={<WorkflowCanvas />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 export default App;
